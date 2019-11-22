@@ -1,10 +1,20 @@
 <template>
-    
+<div id="listentries">
+ 
+  
+</div>
+   
 </template>
 
 <script>
 export default {
-    name: 'ListEntries'
+    name: 'ListEntries',
+    data(){
+        return{
+            
+        }
+    }
+   
 }
 </script>
 
