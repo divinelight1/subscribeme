@@ -5,7 +5,9 @@ import ListEntries from '@/components/ListEntries'
 import Options from '@/components/Options'
 
 
+
 Vue.use(Router)
+
 
 export default new Router({
   routes: [

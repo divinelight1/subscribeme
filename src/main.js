@@ -3,7 +3,13 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import 'onsenui/css/onsenui.css';
+import 'onsenui/css/onsen-css-components.css';
+import VueOnsen from 'vue-onsenui'; // This imports 'onsenui', so no need to import it separately
+import VueLocalStorage from 'vue-localstorage'
 
+Vue.use(VueLocalStorage)
+Vue.use(VueOnsen);
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

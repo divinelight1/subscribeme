@@ -1,9 +1,6 @@
 <template>
 <div id="options">
- 
-  <h1></h1>
-</div>
-   
+ </div>
 </template>
 
 <script>
@@ -11,10 +8,11 @@ export default {
     name: 'Options',
     data(){
         return{
-            
+            text: null,
+            todos: []
         }
-    }
-   
+        
+    }  
 }
 </script>
 

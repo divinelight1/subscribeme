@@ -1,27 +1,47 @@
-<template>
-<div class="homepage-content">
-    <div class="logo-holder">
-        <img class="logo" src="../assets/logo.png">
-
-        <input type="text" placeholder="Name">
-        <input type="text" placeholder="email">
-        <input type="checkbox" name="terms" value="agreed"> agree with terms and condition<br>
-        <button>Subscribe!!</button>
-    </div> 
+<template id="main-page">
+<div id="root">
+<input type="text" v-model="text"/>
+<button @click="addTodo()">Add</button>
+<button @click="removeTodo()">Asdfdd</button>
+<ul>
+  <li v-for="todo in todos">
+    {{ todo }}
+  </li>
+</ul>
+</div>
 </div>
 
-
+   
 </template>
 
 <script>
 
 export default {
   name: 'HomePage',
-  data () {
-    return {
-      
-    }
+  data(){
+        return{
+            text: null,
+            todos: []
+        }
+        
+    },
+   mounted () {
+  const todos = JSON.parse(this.$localStorage.get('todos'))
+  if (todos) {
+    this.todos = todos
   }
+},
+ methods:{
+        addTodo () {
+  this.todos.push(this.text)
+  this.text = null
+  this.$localStorage.set('todos', JSON.stringify(this.todos))
+},
+removeTodo(){
+    localStorage.clear();
+    this.todos = []
+}
+    }
 }
 </script>
 
