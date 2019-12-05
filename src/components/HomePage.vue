@@ -3,11 +3,11 @@
 <input type="text" v-model="text"/>
 <button @click="addTodo()">Add</button>
 <button @click="removeTodo()">Asdfdd</button>
-<ul>
+<!-- <ul>
   <li v-for="todo in todos">
     {{ todo }}
   </li>
-</ul>
+</ul> -->
 </div>
 </div>
 
@@ -33,11 +33,11 @@ export default {
 },
  methods:{
         addTodo () {
-  this.todos.push(this.text)
-  this.text = null
-  this.$localStorage.set('todos', JSON.stringify(this.todos))
-},
-removeTodo(){
+            this.todos.push(this.text)
+            this.text = null
+            this.$localStorage.set('todos', JSON.stringify(this.todos))
+        },
+    removeTodo(){
     localStorage.clear();
     this.todos = []
 }
