@@ -1,17 +1,28 @@
-<template id="main-page">
-<div id="root">
-<input type="text" v-model="text"/>
-<button @click="addTodo()">Add</button>
-<button @click="removeTodo()">Asdfdd</button>
-<!-- <ul>
-  <li v-for="todo in todos">
-    {{ todo }}
-  </li>
-</ul> -->
-</div>
-</div>
+<template id="main-page" >
 
-   
+<!-- layout / content -->
+<div id="root" class="md-layout">
+  <div class="md-layout-item md-medium-size-100 md-small-size-100 md-xsmall-size-100">
+     <!-- name input foeld -->
+     <md-field>
+      <label>Your Name</label>
+      <md-input v-model="text"></md-input>
+    </md-field>
+    <!-- email input field -->
+    <md-field>
+      <label>Your Mail</label>
+      <md-input v-model="mail"></md-input>
+    </md-field>
+    <!-- privacy checkbox -->
+    <md-checkbox v-model="array" value="1">Agree Privacy Policy</md-checkbox>
+  </div>
+
+  <!-- sign up and delete buttons -->
+  <div class="md-layout-item md-medium-size-100 md-small-size-100 md-xsmall-size-100">
+    <md-button class="md-accent md-raised" @click="addTodo()">Sign Up</md-button>
+    <md-button class="md-accent md-raised" @click="removeTodo()">Delete All</md-button>
+  </div>
+</div><!-- /md-layout -->
 </template>
 
 <script>
@@ -20,74 +31,43 @@ export default {
   name: 'HomePage',
   data(){
         return{
-            text: null,
-            todos: []
+          text: null,
+          mail: null,
+          todos: [],
+          mails: [],
+          array: [],
         }
         
     },
-   mounted () {
-  const todos = JSON.parse(this.$localStorage.get('todos'))
-  if (todos) {
-    this.todos = todos
-  }
-},
- methods:{
-        addTodo () {
-            this.todos.push(this.text)
-            this.text = null
-            this.$localStorage.set('todos', JSON.stringify(this.todos))
-        },
+  mounted () {
+    const todos = JSON.parse(this.$localStorage.get('todos'))
+    if (todos) {
+      this.todos = todos
+    };
+    const mails = JSON.parse(this.$localStorage.get('mails'))
+    if (mails) {
+      this.mails = mails
+    };
+  },
+  methods:{
+    addTodo () {
+      this.todos.push(this.text)
+      this.mails.push(this.mail)
+      this.text = null
+      this.mail = null
+      this.$localStorage.set('todos', JSON.stringify(this.todos))
+      this.$localStorage.set('mails', JSON.stringify(this.mails))
+    },
     removeTodo(){
-    localStorage.clear();
-    this.todos = []
-}
+      localStorage.clear();
+      this.mails = [];
+      this.todos = []
     }
+  }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-.logo-holder img {
-    width: 50%;
-    display: block;
-    margin: auto;
-}
-input[type="text"] {
-    width: 80%;
-    font-size: 50px;
-    border: 1px solid;
-    padding: 10px 20px;
-    margin: auto !important;
-    margin-top: 25px !important;
-    display: block;
-    text-align: center;
-    border-radius: 4px;
-}
-input[type="checkbox"] {
-    margin-top: 20px;
-}
-button {
-    width: 84%;
-    padding: 10px 20px;
-    border: 1px solid;
-    font-size: 50px;
-    margin-top: 25px;
-}
-.hompeage-content{
-    padding-bottom: 50px;
-}
+
 </style>

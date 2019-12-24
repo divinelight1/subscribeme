@@ -7,10 +7,16 @@ import 'onsenui/css/onsenui.css';
 import 'onsenui/css/onsen-css-components.css';
 import VueOnsen from 'vue-onsenui'; // This imports 'onsenui', so no need to import it separately
 import VueLocalStorage from 'vue-localstorage'
+import VueMaterial from 'vue-material'
+import 'vue-material/dist/vue-material.min.css'
+import 'vue-material/dist/theme/default.css'
+
 
 Vue.use(VueLocalStorage)
 Vue.use(VueOnsen);
 Vue.config.productionTip = false
+Vue.use(VueMaterial)
+
 
 /* eslint-disable no-new */
 new Vue({

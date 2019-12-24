@@ -12,9 +12,11 @@
   "dependencies": {
     "@jeremyhamm/vue-slider": "^0.2.0",
     "cordova-android": "^8.1.0",
+    "moment": "^2.24.0",
     "onsenui": "^2.10.10",
     "vue": "^2.6.10",
     "vue-localstorage": "^0.6.2",
+    "vue-material": "^1.0.0-beta-11",
     "vue-onsenui": "^2.6.2",
     "vue-router": "^3.0.1",
     "vuetify": "^2.1.11"
